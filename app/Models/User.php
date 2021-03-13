@@ -56,4 +56,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Department', 'deparments', 'id', 'departments_id');
     }
+
+    public function isAdmin() {
+        return $this->roles()->where('name', 'admin_room_911')->exists();
+    }
 }
