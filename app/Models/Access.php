@@ -4,28 +4,34 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Access extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['users_admin', 'users_access', 'confirmed'];
 
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'deleted_at'
+    ];
 
-    public function users_admin() 
+    public $timestamps = true;
+
+    public function users_admin_all()
     {
-        return $this->belongsToMany('App\Models\User', 'users', 'id', 'users_admin');
+        return $this->hasOne(User::class, 'id', 'users_admin');
     }
 
-    public function users_access() 
+    public function users_access_all()
     {
-        return $this->belongsToMany('App\Models\User', 'users', 'id', 'users_access');
+        return $this->hasOne(User::class, 'id', 'users_access');
     }
 
 }

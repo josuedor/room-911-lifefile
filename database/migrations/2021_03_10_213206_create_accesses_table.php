@@ -19,6 +19,7 @@ class CreateAccessesTable extends Migration
             $table->foreign('users_admin')->references('id')->on('users');
             $table->unsignedBigInteger('users_access')->nullable();
             $table->foreign('users_access')->references('id')->on('users');
+            $table->boolean('confirmed')->nullable()->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
