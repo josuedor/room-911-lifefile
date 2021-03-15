@@ -29,6 +29,8 @@
             <button class="btn btn-primary mr-1" type="submit" onclick="searchAcessUser()">Search</button>
             <a class="btn btn-secondary" href="/access-activity/{{Request::segment(2)}}" type="submit">Clear</a>
         </div>
+
+        <a class="btn btn-primary d-flex" style="float: right;" href="/export-pdf/{{Request::segment(2)}}" target="_blank">Export to PDF</a>
     </div>
     <table class="table table-sm table-bordered">
         <thead>

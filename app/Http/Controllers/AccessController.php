@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Access;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\AccessExport;
 
 class AccessController extends Controller
 {
@@ -85,6 +87,11 @@ class AccessController extends Controller
         return back()->withErrors([
             'error' => 'Dates are required',
         ]);
+    }
+
+    public function export(Request $request, $id) 
+    {
+        return (new AccessExport($id))->download('access-user-room-911.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
     }
     
     

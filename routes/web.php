@@ -28,6 +28,8 @@ Route::get('access', [AccessController::class, 'access']);
 Route::post('createaccess', [AccessController::class, 'createAccess']);
 Route::get('access-activity/{id}', [AccessController::class, 'accessUsers']);
 Route::get('search-access-user/{id}', [AccessController::class, 'searchAccessUsers']);
+Route::get('export-pdf/{id}', [AccessController::class, 'export']);
+
 
 Route::post('user-enabled-or-disable', [UserController::class, 'userEnabledOrDisable']);
 Route::post('remove-user', [UserController::class, 'removeUser']);
