@@ -29,3 +29,7 @@ valet link room-911
 ## Notes
 
 - You need to configure .env file
+
+## Admin credentials
+- User: admin@admin.com
+- Pass: secret

@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'middlename' => 'David',
             'lastname' => 'Oviedo',
             'identification' => '1102832744',
-            'email' => 'josuedor@gmail.com',
+            'email' => 'admin@admin.com',
             'password' => Hash::make('secret'),
             'status' => 'enabled', //disabled
             'roles_id' => $role_id_admin,
