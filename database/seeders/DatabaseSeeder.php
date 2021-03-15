@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create();
+
         $role_id_admin = DB::table('roles')->insertGetId([
             'name' => 'admin_room_911',
             'code' => 'AD123',
@@ -60,11 +63,11 @@ class DatabaseSeeder extends Seeder
 
         for ($i=0; $i < 30; $i++) { 
             DB::table('users')->insert([
-                'firstname' => Str::random(10),
-                'middlename' => Str::random(10),
-                'lastname' => Str::random(10),
-                'identification' => rand(11021234,999999999),
-                'email' => Str::random(10).'@gmail.com',
+                'firstname' => $faker->firstname,
+                'middlename' => $faker->firstname,
+                'lastname' => $faker->lastname,
+                'identification' => $faker->randomNumber(8),
+                'email' => $faker->email,
                 'password' => Hash::make('secret'),
                 'status' => 'enabled', //disabled
                 'roles_id' => $role_id_normal,
@@ -77,11 +80,11 @@ class DatabaseSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
             $now = \Carbon\Carbon::now();
             DB::table('users')->insert([
-                'firstname' => Str::random(10),
-                'middlename' => Str::random(10),
-                'lastname' => Str::random(10),
-                'identification' => rand(11021234,999999999),
-                'email' => Str::random(10).'@gmail.com',
+                'firstname' => $faker->firstname,
+                'middlename' => $faker->firstname,
+                'lastname' => $faker->lastname,
+                'identification' => $faker->randomNumber(8),
+                'email' => $faker->email,
                 'password' => Hash::make('secret'),
                 'status' => 'enabled', //disabled
                 'roles_id' => $role_id_normal,
@@ -94,11 +97,11 @@ class DatabaseSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
             $now = \Carbon\Carbon::now();
             DB::table('users')->insert([
-                'firstname' => Str::random(10),
-                'middlename' => Str::random(10),
-                'lastname' => Str::random(10),
-                'identification' => rand(11021234,999999999),
-                'email' => Str::random(10).'@gmail.com',
+                'firstname' => $faker->firstname,
+                'middlename' => $faker->firstname,
+                'lastname' => $faker->lastname,
+                'identification' => $faker->randomNumber(8),
+                'email' => $faker->email,
                 'password' => Hash::make('secret'),
                 'status' => 'enabled', //disabled
                 'roles_id' => $role_id_normal,

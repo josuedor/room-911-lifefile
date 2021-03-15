@@ -45,9 +45,10 @@
             
             <a class="btn btn-secondary" href="/dashboard" type="submit">Clear</a>
         </div>
-        
-        <button type="button" onclick="openUploadModal()" class="btn btn-primary d-flex" style="float: right;">Upload masive users</button>
-        <button type="submit" onclick="saveOrEditUser()" class="btn btn-primary d-flex" style="float: right;">New employed</button>
+        <div style="display: flex;">
+            <button type="button" onclick="openUploadModal()" class="btn btn-primary d-flex mr-2" style="float: right;">Upload masive users</button>
+            <button type="submit" onclick="saveOrEditUser()" class="btn btn-primary d-flex" style="float: right;">New employed</button>
+        </div>
     </div>
     <table class="table table-sm table-bordered">
         <thead>
